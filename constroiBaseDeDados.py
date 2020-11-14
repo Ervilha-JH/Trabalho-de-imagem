@@ -20,8 +20,9 @@ def criaPastaComNomes(listaNomes):
             print("Não foi possível criar o diretório ou o mesmo já existe.")
 
 def salvaFacesDetectadas(nome):
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-    cap = cv2.VideoCapture(nome + ".mp4") #inicia captura da câmera
+    face_cascade = cv2.CascadeClassifier('C:\\Users\\JH\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml')
+    
+    cap = cv2.VideoCapture(0) #inicia captura da câmera
 
     counterFrames = 0;
     while(counterFrames < 1000): #quando chegar ao milésimo frame, para

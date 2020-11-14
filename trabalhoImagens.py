@@ -1,7 +1,7 @@
 from __future__ import print_function
 import cv2 as cv
 import argparse
-import constroiBaseDeDados
+#import constroiBaseDeDados
 def detectAndDisplay(frame):
     frame_gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     frame_gray = cv.equalizeHist(frame_gray)
@@ -19,8 +19,8 @@ def detectAndDisplay(frame):
             frame = cv.circle(frame, eye_center, radius, (255, 0, 0 ), 4)
     cv.imshow('Capture - Face detection', frame)
 parser = argparse.ArgumentParser(description='Code for Cascade Classifier tutorial.')
-parser.add_argument('--face_cascade', help='Path to face cascade.', default='C:\\Users\\JH\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_alt.xml')
-parser.add_argument('--eyes_cascade', help='Path to eyes cascade.', default='C:\\Users\\JH\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages\\cv2\\data\\haarcascade_eye_tree_eyeglasses.xml')
+parser.add_argument('--face_cascade', help='Path to face cascade.', default='C:\\Users\\JH\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_alt.xml') #path do local onde está seu haarcascade
+parser.add_argument('--eyes_cascade', help='Path to eyes cascade.', default='C:\\Users\\JH\\AppData\\Local\\Programs\\Python\\Python38-32\\Lib\\site-packages\\cv2\\data\\haarcascade_eye_tree_eyeglasses.xml') #path do local onde está seu haarcascade
 parser.add_argument('--camera', help='Camera divide number.', type=int, default=0)
 args = parser.parse_args()
 face_cascade_name = args.face_cascade
