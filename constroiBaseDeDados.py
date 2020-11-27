@@ -25,7 +25,7 @@ def salvaFacesDetectadas(nome):
     cap = cv2.VideoCapture(0) #inicia captura da câmera
 
     counterFrames = 0;
-    while(counterFrames < 1000): #quando chegar ao milésimo frame, para
+    while(counterFrames < 350): #quando chegar ao milésimo frame, para
         print(counterFrames)
         ret, img = cap.read()
 
@@ -42,20 +42,14 @@ def salvaFacesDetectadas(nome):
             continue
 
         #achou uma face? recorte ela (crop)
-        for (x, y, w, h) in faces:
-            rostoImg = img[y:y+h, x:x+w]
-
-        #imagens muito pequenas são desconsideradas
-        larg, alt, _ = rostoImg.shape
-        if(larg * alt <= 20 * 20):
-            continue
+        rostoImg = img
 
         #salva imagem na pasta
-        rostoImg = cv2.resize(rostoImg, (255, 255))
         cv2.imwrite(nome + "/" + str(counterFrames)+".png", rostoImg)
         counterFrames += 1
             
     cap.release()
+    cv2.waitKey(0)
 
 #função principal da aplicação
 def main():
